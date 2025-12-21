@@ -5,15 +5,15 @@
  * Designed for use with expo-apple-targets Watch apps.
  */
 
-import { useEffect, useState, useCallback, useRef } from 'react';
 import {
-  WatchConnectivity,
-  SessionState,
-  MessageReceivedEvent,
   ApplicationContextReceivedEvent,
-  UserInfoReceivedEvent,
   FileReceivedEvent,
-} from 'expo-watch-connectivity';
+  MessageReceivedEvent,
+  SessionState,
+  UserInfoReceivedEvent,
+  WatchConnectivity,
+} from "@plevo/expo-watch-connectivity";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export interface UseWatchConnectivityOptions {
   /** Auto-activate session on mount (default: true) */
@@ -46,7 +46,9 @@ export interface UseWatchConnectivityResult {
   /** Manually activate the session */
   activate: () => Promise<void>;
   /** Send a message and get a reply */
-  sendMessage: (message: Record<string, unknown>) => Promise<Record<string, unknown>>;
+  sendMessage: (
+    message: Record<string, unknown>
+  ) => Promise<Record<string, unknown>>;
   /** Update application context */
   updateContext: (context: Record<string, unknown>) => Promise<void>;
   /** Transfer user info */
@@ -93,7 +95,13 @@ export interface UseWatchConnectivityResult {
 export function useWatchConnectivity(
   options: UseWatchConnectivityOptions = {}
 ): UseWatchConnectivityResult {
-  const { autoActivate = true, onMessage, onApplicationContext, onUserInfo, onFile } = options;
+  const {
+    autoActivate = true,
+    onMessage,
+    onApplicationContext,
+    onUserInfo,
+    onFile,
+  } = options;
 
   const [sessionState, setSessionState] = useState<SessionState | null>(null);
   const [isActivated, setIsActivated] = useState(false);
@@ -133,7 +141,7 @@ export function useWatchConnectivity(
         isPaired: false,
         isWatchAppInstalled: false,
         isReachable: false,
-        activationState: 'notActivated',
+        activationState: "notActivated",
         hasContentPending: false,
         isComplicationEnabled: false,
         remainingComplicationUserInfoTransfers: 0,
@@ -156,7 +164,7 @@ export function useWatchConnectivity(
         setSessionState(WatchConnectivity.sessionState);
       }),
       WatchConnectivity.addActivationListener((event) => {
-        setIsActivated(event.activationState === 'activated');
+        setIsActivated(event.activationState === "activated");
         if (event.error) {
           setError(new Error(event.error));
         }
@@ -185,9 +193,12 @@ export function useWatchConnectivity(
     return WatchConnectivity.sendMessage(message);
   }, []);
 
-  const updateContext = useCallback(async (context: Record<string, unknown>) => {
-    return WatchConnectivity.updateApplicationContext(context);
-  }, []);
+  const updateContext = useCallback(
+    async (context: Record<string, unknown>) => {
+      return WatchConnectivity.updateApplicationContext(context);
+    },
+    []
+  );
 
   const transferUserInfo = useCallback((userInfo: Record<string, unknown>) => {
     WatchConnectivity.transferUserInfo(userInfo);
@@ -209,4 +220,3 @@ export function useWatchConnectivity(
 }
 
 export default useWatchConnectivity;
-

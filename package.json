@@ -1,6 +1,6 @@
 {
-  "name": "expo-watch-connectivity",
-  "version": "0.1.0",
+  "name": "@plevo/expo-watch-connectivity",
+  "version": "0.1.1",
   "description": "Expo module wrapping Apple's WatchConnectivity framework for seamless communication between React Native and Apple Watch apps",
   "main": "src/index.ts",
   "types": "src/index.ts",
@@ -19,14 +19,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/user/expo-watch-connectivity"
+    "url": "git+https://github.com/ixacik/expo-watch-connectivity.git"
   },
   "bugs": {
-    "url": "https://github.com/user/expo-watch-connectivity/issues"
+    "url": "https://github.com/ixacik/expo-watch-connectivity/issues"
   },
-  "author": "",
+  "author": "ixacik",
   "license": "MIT",
-  "homepage": "https://github.com/user/expo-watch-connectivity#readme",
+  "homepage": "https://github.com/ixacik/expo-watch-connectivity#readme",
   "dependencies": {},
   "devDependencies": {
     "expo-modules-core": "^2.0.0",

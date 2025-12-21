@@ -32,7 +32,7 @@ export { ExpoWatchConnectivityModule };
  *
  * @example
  * ```typescript
- * import { WatchConnectivity } from 'expo-watch-connectivity';
+ * import { WatchConnectivity } from '@plevo/expo-watch-connectivity';
  *
  * // Activate session
  * await WatchConnectivity.activate();

@@ -1,7 +1,7 @@
 /**
  * Example React Native Screen
  *
- * Demonstrates full integration of expo-watch-connectivity
+ * Demonstrates full integration of @plevo/expo-watch-connectivity
  * with a React Native / Expo app.
  */
 
@@ -17,7 +17,7 @@ import {
   Platform,
 } from 'react-native';
 import { useWatchConnectivity } from './useWatchConnectivity';
-import { WatchConnectivity, MessageReceivedEvent } from 'expo-watch-connectivity';
+import { WatchConnectivity, MessageReceivedEvent } from '@plevo/expo-watch-connectivity';
 
 export function WatchConnectivityScreen() {
   const [messageLog, setMessageLog] = useState<string[]>([]);

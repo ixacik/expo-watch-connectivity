@@ -1,17 +1,17 @@
-# expo-watch-connectivity
+# @plevo/expo-watch-connectivity
 
 Expo module wrapping Apple's WatchConnectivity framework for seamless communication between React Native/Expo apps and Apple Watch apps.
 
 ## Installation
 
 ```bash
-npx expo install expo-watch-connectivity
+npx expo install @plevo/expo-watch-connectivity
 ```
 
 ## Usage
 
 ```typescript
-import { WatchConnectivity } from 'expo-watch-connectivity';
+import { WatchConnectivity } from '@plevo/expo-watch-connectivity';
 
 // Activate the session (required before any communication)
 await WatchConnectivity.activate();
