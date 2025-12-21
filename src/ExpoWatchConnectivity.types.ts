@@ -180,7 +180,7 @@ export interface ActivationDidCompleteEvent {
  * Map of all events emitted by the ExpoWatchConnectivity module.
  * Used for type-safe event subscription.
  */
-export interface WatchConnectivityEvents {
+export type WatchConnectivityEvents = {
   onSessionStateChanged: (event: SessionStateChangedEvent) => void;
   onReachabilityChanged: (event: ReachabilityChangedEvent) => void;
   onActivationDidComplete: (event: ActivationDidCompleteEvent) => void;
@@ -192,7 +192,8 @@ export interface WatchConnectivityEvents {
   onFileTransferProgress: (event: FileTransferProgressEvent) => void;
   onFileTransferCompleted: (event: FileTransferCompletedEvent) => void;
   onUserInfoTransferCompleted: (event: UserInfoTransferCompletedEvent) => void;
-}
+  [key: string]: (event: any) => void;
+};
 
 // ============================================================================
 // Error Types

@@ -1,17 +1,16 @@
-import { requireNativeModule, NativeModule } from 'expo';
+import { requireNativeModule, type Subscription } from 'expo-modules-core';
 import type {
   SessionState,
   ActivationState,
   FileTransferInfo,
   UserInfoTransferInfo,
-  WatchConnectivityEvents,
 } from './ExpoWatchConnectivity.types';
 
 /**
  * Native module interface declaration.
  * This defines the bridge between TypeScript and the native Swift/Kotlin implementations.
  */
-declare class ExpoWatchConnectivityModuleType extends NativeModule<WatchConnectivityEvents> {
+interface ExpoWatchConnectivityModuleType {
   // State getters
   getSessionState(): SessionState;
   getApplicationContext(): Record<string, unknown>;
@@ -38,6 +37,9 @@ declare class ExpoWatchConnectivityModuleType extends NativeModule<WatchConnecti
   // File Transfer
   transferFile(url: string, metadata?: Record<string, unknown>): FileTransferInfo;
   getOutstandingFileTransfers(): FileTransferInfo[];
+
+  // Event Listener
+  addListener<T>(eventName: string, listener: (event: T) => void): Subscription;
 }
 
 /**

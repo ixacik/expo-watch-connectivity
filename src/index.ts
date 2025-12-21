@@ -1,4 +1,4 @@
-import { type EventSubscription } from 'expo';
+import type { Subscription } from 'expo-modules-core';
 import ExpoWatchConnectivityModule from './ExpoWatchConnectivityModule';
 import type {
   SessionState,
@@ -237,7 +237,7 @@ export const WatchConnectivity = {
    */
   addSessionStateListener(
     callback: (event: SessionStateChangedEvent) => void
-  ): EventSubscription {
+  ): Subscription {
     return ExpoWatchConnectivityModule.addListener('onSessionStateChanged', callback);
   },
 
@@ -247,7 +247,7 @@ export const WatchConnectivity = {
    */
   addReachabilityListener(
     callback: (event: ReachabilityChangedEvent) => void
-  ): EventSubscription {
+  ): Subscription {
     return ExpoWatchConnectivityModule.addListener('onReachabilityChanged', callback);
   },
 
@@ -256,7 +256,7 @@ export const WatchConnectivity = {
    */
   addActivationListener(
     callback: (event: ActivationDidCompleteEvent) => void
-  ): EventSubscription {
+  ): Subscription {
     return ExpoWatchConnectivityModule.addListener('onActivationDidComplete', callback);
   },
 
@@ -266,7 +266,7 @@ export const WatchConnectivity = {
    */
   addMessageListener(
     callback: (event: MessageReceivedEvent) => void
-  ): EventSubscription {
+  ): Subscription {
     return ExpoWatchConnectivityModule.addListener('onMessageReceived', callback);
   },
 
@@ -276,7 +276,7 @@ export const WatchConnectivity = {
    */
   addMessageDataListener(
     callback: (event: MessageDataReceivedEvent) => void
-  ): EventSubscription {
+  ): Subscription {
     return ExpoWatchConnectivityModule.addListener('onMessageDataReceived', callback);
   },
 
@@ -285,7 +285,7 @@ export const WatchConnectivity = {
    */
   addApplicationContextListener(
     callback: (event: ApplicationContextReceivedEvent) => void
-  ): EventSubscription {
+  ): Subscription {
     return ExpoWatchConnectivityModule.addListener('onApplicationContextReceived', callback);
   },
 
@@ -294,14 +294,14 @@ export const WatchConnectivity = {
    */
   addUserInfoListener(
     callback: (event: UserInfoReceivedEvent) => void
-  ): EventSubscription {
+  ): Subscription {
     return ExpoWatchConnectivityModule.addListener('onUserInfoReceived', callback);
   },
 
   /**
    * Listen for files received from the Watch.
    */
-  addFileListener(callback: (event: FileReceivedEvent) => void): EventSubscription {
+  addFileListener(callback: (event: FileReceivedEvent) => void): Subscription {
     return ExpoWatchConnectivityModule.addListener('onFileReceived', callback);
   },
 
@@ -310,7 +310,7 @@ export const WatchConnectivity = {
    */
   addFileTransferProgressListener(
     callback: (event: FileTransferProgressEvent) => void
-  ): EventSubscription {
+  ): Subscription {
     return ExpoWatchConnectivityModule.addListener('onFileTransferProgress', callback);
   },
 
@@ -319,7 +319,7 @@ export const WatchConnectivity = {
    */
   addFileTransferCompletedListener(
     callback: (event: FileTransferCompletedEvent) => void
-  ): EventSubscription {
+  ): Subscription {
     return ExpoWatchConnectivityModule.addListener('onFileTransferCompleted', callback);
   },
 
@@ -328,7 +328,7 @@ export const WatchConnectivity = {
    */
   addUserInfoTransferCompletedListener(
     callback: (event: UserInfoTransferCompletedEvent) => void
-  ): EventSubscription {
+  ): Subscription {
     return ExpoWatchConnectivityModule.addListener('onUserInfoTransferCompleted', callback);
   },
 } as const;
