@@ -1,6 +1,6 @@
 {
   "name": "@plevo/expo-watch-connectivity",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Expo module wrapping Apple's WatchConnectivity framework for seamless communication between React Native and Apple Watch apps",
   "main": "src/index.ts",
   "types": "src/index.ts",

@@ -59,15 +59,18 @@ class ExpoWatchConnectivityModule : Module() {
     // Lifecycle
     AsyncFunction("activate") {
       throw PlatformNotSupportedException()
+      @Suppress("UNREACHABLE_CODE") Unit
     }
-    
+
     // Messaging
     AsyncFunction("sendMessage") { _: Map<String, Any> ->
       throw PlatformNotSupportedException()
+      @Suppress("UNREACHABLE_CODE") Unit
     }
-    
+
     AsyncFunction("sendMessageData") { _: String ->
       throw PlatformNotSupportedException()
+      @Suppress("UNREACHABLE_CODE") Unit
     }
     
     Function("replyToMessage") { _: String, _: Map<String, Any> ->
@@ -81,6 +84,7 @@ class ExpoWatchConnectivityModule : Module() {
     // Application Context
     AsyncFunction("updateApplicationContext") { _: Map<String, Any> ->
       throw PlatformNotSupportedException()
+      @Suppress("UNREACHABLE_CODE") Unit
     }
     
     // User Info Transfer
@@ -129,7 +133,8 @@ class ExpoWatchConnectivityModule : Module() {
  * Exception thrown when WatchConnectivity methods are called on Android.
  */
 class PlatformNotSupportedException : CodedException(
-  code = "E_NOT_SUPPORTED",
-  message = "WatchConnectivity is only available on iOS. Use Wear OS APIs for Android watch communication."
+  "E_NOT_SUPPORTED",
+  "WatchConnectivity is only available on iOS. Use Wear OS APIs for Android watch communication.",
+  null
 )
 
